@@ -68,13 +68,6 @@ const NFTDetailsContentSkeleton = ({ showFullLayout = true }) => {
               </div>
             </div>
 
-            {/* Countdown */}
-            <div className="mb-4">
-              <Skeleton width="120px" height="20px" borderRadius="4px" />
-              <div className="spacer-10"></div>
-              <Skeleton width="150px" height="32px" borderRadius="6px" />
-            </div>
-
             {/* Price */}
             <div>
               <Skeleton width="50px" height="20px" borderRadius="4px" />
@@ -92,7 +85,6 @@ const NFTDetailsContentSkeleton = ({ showFullLayout = true }) => {
     </div>
   );
 
- 
   if (showFullLayout) {
     return (
       <div id="wrapper">
@@ -105,7 +97,6 @@ const NFTDetailsContentSkeleton = ({ showFullLayout = true }) => {
       </div>
     );
   }
-
 
   return content;
 };

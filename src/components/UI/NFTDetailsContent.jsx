@@ -6,7 +6,7 @@ import nftImage from "../../images/nftImage.jpg";
 import CountdownTimer from "./CountdownTimer";
 
 const NFTDetailsContent = ({ itemData, showFullLayout = true }) => {
-  const containerClass = showFullLayout ? "container" : ""; 
+  const containerClass = showFullLayout ? "container" : "";
 
   const rowClass = showFullLayout ? "row" : "d-flex flex-column flex-md-row";
 
@@ -71,7 +71,7 @@ const NFTDetailsContent = ({ itemData, showFullLayout = true }) => {
               </div>
             </div>
 
-              <div className="de_tab tab_simple">
+            <div className="de_tab tab_simple">
               <div className="de_tab_content">
                 <h6>Creator</h6>
                 <div className="item_author">
@@ -91,8 +91,8 @@ const NFTDetailsContent = ({ itemData, showFullLayout = true }) => {
                     </Link>
                   </div>
                 </div>
-              </div>              <div className="spacer-40"></div>
-
+              </div>{" "}
+              <div className="spacer-40"></div>
               {itemData.expiryDate && (
                 <>
                   <h6>Auction Ends In</h6>
@@ -102,7 +102,6 @@ const NFTDetailsContent = ({ itemData, showFullLayout = true }) => {
                   <div className="spacer-20"></div>
                 </>
               )}
-
               <h6>Price</h6>
               <div className="nft-item-price">
                 <img src={EthImage} alt="" />
@@ -115,7 +114,6 @@ const NFTDetailsContent = ({ itemData, showFullLayout = true }) => {
     </div>
   );
 
-  
   if (showFullLayout) {
     return (
       <div id="wrapper">
@@ -129,7 +127,6 @@ const NFTDetailsContent = ({ itemData, showFullLayout = true }) => {
     );
   }
 
-  
   return content;
 };
 
