@@ -71,29 +71,27 @@ const NFTDetailsContent = ({ itemData, showFullLayout = true }) => {
               </div>
             </div>
 
-            <div className="de_tab tab_simple">
+              <div className="de_tab tab_simple">
               <div className="de_tab_content">
                 <h6>Creator</h6>
                 <div className="item_author">
                   <div className="author_list_pp">
-                    <Link to={`/author/${itemData.authorId}`}>
+                    <Link to={`/author/${itemData.creatorId}`}>
                       <img
                         className="img-fluid"
-                        src={itemData.authorImage || AuthorImage}
+                        src={itemData.creatorImage || AuthorImage}
                         alt=""
                       />
                       <i className="fa fa-check"></i>
                     </Link>
                   </div>
                   <div className="author_list_info">
-                    <Link to={`/author/${itemData.authorId}`}>
-                      {itemData.authorName || "Unknown Creator"}
+                    <Link to={`/author/${itemData.creatorId}`}>
+                      {itemData.creatorName || "Unknown Creator"}
                     </Link>
                   </div>
                 </div>
-              </div>
-
-              <div className="spacer-40"></div>
+              </div>              <div className="spacer-40"></div>
 
               {itemData.expiryDate && (
                 <>
