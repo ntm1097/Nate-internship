@@ -14,17 +14,9 @@ const NFTCardSkeleton = () => {
               height: "50px",
               borderRadius: "50%",
               backgroundColor: "#f0f0f0",
-              animation: "shimmer 1.5s infinite",
-            }}
-          />
-        </div>
-        <div className="de_countdown">
-          <div
-            style={{
-              width: "80px",
-              height: "20px",
-              backgroundColor: "#f0f0f0",
-              borderRadius: "4px",
+              backgroundImage:
+                "linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%)",
+              backgroundSize: "200% 100%",
               animation: "shimmer 1.5s infinite",
             }}
           />
@@ -35,6 +27,9 @@ const NFTCardSkeleton = () => {
               width: "100%",
               height: "250px",
               backgroundColor: "#f0f0f0",
+              backgroundImage:
+                "linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%)",
+              backgroundSize: "200% 100%",
               borderRadius: "8px",
               animation: "shimmer 1.5s infinite",
             }}
@@ -46,6 +41,9 @@ const NFTCardSkeleton = () => {
               width: "70%",
               height: "20px",
               backgroundColor: "#f0f0f0",
+              backgroundImage:
+                "linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%)",
+              backgroundSize: "200% 100%",
               borderRadius: "4px",
               marginBottom: "10px",
               animation: "shimmer 1.5s infinite",
@@ -56,6 +54,9 @@ const NFTCardSkeleton = () => {
               width: "50%",
               height: "16px",
               backgroundColor: "#f0f0f0",
+              backgroundImage:
+                "linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%)",
+              backgroundSize: "200% 100%",
               borderRadius: "4px",
               animation: "shimmer 1.5s infinite",
             }}

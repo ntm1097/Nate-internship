@@ -15,7 +15,7 @@ const HotCollections = () => {
   const sliderRef = useRef(null);
   const [slider, setSlider] = useState(null);
 
-useEffect(() => {
+  useEffect(() => {
     const fetchCollections = async () => {
       try {
         setLoading(true);
@@ -33,7 +33,7 @@ useEffect(() => {
     fetchCollections();
   }, []);
 
-   useEffect(() => {
+  useEffect(() => {
     if (sliderRef.current && collections.length > 0 && !loading) {
       const keenSlider = new KeenSlider(sliderRef.current, {
         loop: true,
@@ -70,20 +70,29 @@ useEffect(() => {
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="text-center">
+            <div
+              className="text-center"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
               <h2>Hot Collections</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
           <div className="col-lg-12">
-            <div className="slider-container">
+            <div
+              className="slider-container"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
               <div ref={sliderRef} className="keen-slider">
                 {loading
-                  ? 
-                    Array.from({ length: 4 }).map((_, index) => (
+                  ? Array.from({ length: 4 }).map((_, index) => (
                       <div
                         className="keen-slider__slide"
                         key={`skeleton-${index}`}
+                        data-aos="fade-up"
+                        data-aos-delay={300 + index * 100}
                       >
                         <div className="nft_coll collection-skeleton">
                           <div className="nft_wrap">
@@ -116,8 +125,13 @@ useEffect(() => {
                         </div>
                       </div>
                     ))
-                  : collections.map((collection) => (
-                      <div className="keen-slider__slide" key={collection.id}>
+                  : collections.map((collection, index) => (
+                      <div
+                        className="keen-slider__slide"
+                        key={collection.id}
+                        data-aos="fade-up"
+                        data-aos-delay={300 + index * 100}
+                      >
                         <div className="nft_coll">
                           <div className="nft_wrap">
                             <Link to={`/item-details/${collection.nftId}`}>
@@ -152,7 +166,6 @@ useEffect(() => {
                     ))}
               </div>
 
-              
               {slider && !loading && (
                 <>
                   <button

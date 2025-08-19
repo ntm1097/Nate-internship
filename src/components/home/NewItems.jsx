@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import "keen-slider/keen-slider.min.css";
 import KeenSlider from "keen-slider";
@@ -68,26 +67,44 @@ const NewItems = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="text-center">
+            <div
+              className="text-center"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
               <h2>New Items</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
           <div className="col-lg-12">
-            <div className="slider-container">
+            <div
+              className="slider-container"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
               <div ref={sliderRef} className="keen-slider">
                 {loading
-                  ? 
-                    Array.from({ length: 4 }).map((_, index) => (
-                      <SliderNFTCardSkeleton key={`skeleton-${index}`} />
+                  ? Array.from({ length: 4 }).map((_, index) => (
+                      <div
+                        key={`skeleton-${index}`}
+                        data-aos="fade-up"
+                        data-aos-delay={300 + index * 100}
+                      >
+                        <SliderNFTCardSkeleton />
+                      </div>
                     ))
-                  : nftData.map((item) => (
-                      <SliderNFTCard
+                  : nftData.map((item, index) => (
+                      <div
                         key={item.id}
-                        nft={item}
-                        showCountdown={true}
-                        showShareButtons={true}
-                      />
+                        data-aos="fade-up"
+                        data-aos-delay={300 + index * 100}
+                      >
+                        <SliderNFTCard
+                          nft={item}
+                          showCountdown={true}
+                          showShareButtons={true}
+                        />
+                      </div>
                     ))}
               </div>
 

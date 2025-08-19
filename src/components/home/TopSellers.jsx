@@ -35,67 +35,80 @@ const TopSellers = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            <div className="text-center">
+            <div
+              className="text-center"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
               <h2>Top Sellers</h2>
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
           <div className="col-md-12">
-            <ol className="author_list">
-              {loading
-                ? 
-                  Array.from({ length: 12 }).map((_, index) => (
-                    <li key={`skeleton-${index}`}>
-                      <div className="author_list_pp">
-                        <Skeleton
-                          width="50px"
-                          height="50px"
-                          borderRadius="50%"
-                        />
-                      </div>
-                      <div className="author_list_info">
-                        <Skeleton
-                          width="120px"
-                          height="20px"
-                          borderRadius="4px"
-                        />
-                        <br />
-                        <Skeleton
-                          width="80px"
-                          height="16px"
-                          borderRadius="4px"
-                        />
-                      </div>
-                    </li>
-                  ))
-                : error
-                ? <li className="text-center">
-                    <p>{error}</p>
+            <ol className="author_list" data-aos="fade-up" data-aos-delay="200">
+              {loading ? (
+                Array.from({ length: 12 }).map((_, index) => (
+                  <li
+                    key={`skeleton-${index}`}
+                    data-aos="fade-up"
+                    data-aos-delay={300 + index * 50}
+                  >
+                    <div className="author_list_pp">
+                      <Skeleton width="50px" height="50px" borderRadius="50%" />
+                    </div>
+                    <div className="author_list_info">
+                      <Skeleton
+                        width="120px"
+                        height="20px"
+                        borderRadius="4px"
+                      />
+                      <br />
+                      <Skeleton width="80px" height="16px" borderRadius="4px" />
+                    </div>
                   </li>
-                : topSellers.length === 0
-                ? <li className="text-center">
-                    <p>No top sellers available</p>
+                ))
+              ) : error ? (
+                <li
+                  className="text-center"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                >
+                  <p>{error}</p>
+                </li>
+              ) : topSellers.length === 0 ? (
+                <li
+                  className="text-center"
+                  data-aos="fade-up"
+                  data-aos-delay="300"
+                >
+                  <p>No top sellers available</p>
+                </li>
+              ) : (
+                topSellers.map((seller, index) => (
+                  <li
+                    key={seller.id || index}
+                    data-aos="fade-up"
+                    data-aos-delay={300 + index * 50}
+                  >
+                    <div className="author_list_pp">
+                      <Link to={`/author/${seller.authorId}`}>
+                        <img
+                          className="lazy pp-author"
+                          src={seller.authorImage || AuthorImage}
+                          alt={seller.authorName || "Author"}
+                        />
+                        <i className="fa fa-check"></i>
+                      </Link>
+                    </div>
+                    <div className="author_list_info">
+                      <Link to={`/author/${seller.authorId}`}>
+                        {seller.authorName || "Unknown Author"}
+                      </Link>
+                      <span>{seller.price || "0.00"} ETH</span>
+                    </div>
                   </li>
-                : topSellers.map((seller, index) => (
-                    <li key={seller.id || index}>
-                      <div className="author_list_pp">
-                        <Link to={`/author/${seller.authorId}`}>
-                          <img
-                            className="lazy pp-author"
-                            src={seller.authorImage || AuthorImage}
-                            alt={seller.authorName || "Author"}
-                          />
-                          <i className="fa fa-check"></i>
-                        </Link>
-                      </div>
-                      <div className="author_list_info">
-                        <Link to={`/author/${seller.authorId}`}>
-                          {seller.authorName || "Unknown Author"}
-                        </Link>
-                        <span>{seller.price || "0.00"} ETH</span>
-                      </div>
-                    </li>
-                  ))}
+                ))
+              )}
             </ol>
           </div>
         </div>
