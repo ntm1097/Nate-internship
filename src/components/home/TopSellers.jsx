@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import axios from "axios";
 import Skeleton from "../UI/Skeleton";
+import { useEffect } from "react";
 
 const TopSellers = () => {
   const [topSellers, setTopSellers] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const fetchTopSellers = async () => {
       try {
         setLoading(true);
@@ -42,7 +43,7 @@ const TopSellers = () => {
           <div className="col-md-12">
             <ol className="author_list">
               {loading
-                ? // Skeleton Loading state
+                ? 
                   Array.from({ length: 12 }).map((_, index) => (
                     <li key={`skeleton-${index}`}>
                       <div className="author_list_pp">

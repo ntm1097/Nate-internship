@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
@@ -9,12 +10,12 @@ import Skeleton from "../UI/Skeleton";
 import "../../css/styles/KeenCarousel.css";
 
 const HotCollections = () => {
-  const [collections, setCollections] = React.useState([]);
-  const [loading, setLoading] = React.useState(true);
-  const sliderRef = React.useRef(null);
-  const [slider, setSlider] = React.useState(null);
+  const [collections, setCollections] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const sliderRef = useRef(null);
+  const [slider, setSlider] = useState(null);
 
-  React.useEffect(() => {
+useEffect(() => {
     const fetchCollections = async () => {
       try {
         setLoading(true);
@@ -32,7 +33,7 @@ const HotCollections = () => {
     fetchCollections();
   }, []);
 
-  React.useEffect(() => {
+   useEffect(() => {
     if (sliderRef.current && collections.length > 0 && !loading) {
       const keenSlider = new KeenSlider(sliderRef.current, {
         loop: true,
@@ -78,7 +79,7 @@ const HotCollections = () => {
             <div className="slider-container">
               <div ref={sliderRef} className="keen-slider">
                 {loading
-                  ? // Skeleton Loading state
+                  ? 
                     Array.from({ length: 4 }).map((_, index) => (
                       <div
                         className="keen-slider__slide"
@@ -151,7 +152,7 @@ const HotCollections = () => {
                     ))}
               </div>
 
-              {/* Navigation Arrows - only show when not loading */}
+              
               {slider && !loading && (
                 <>
                   <button
